@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-utf8mex
-Version:	20111103
+Version:	20111104
 Release:	1
 Summary:	TeXLive utf8mex package
 Group:		Publishing
