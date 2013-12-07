@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-utf8mex
 Version:	20111104
-Release:	3
+Release:	4
 Summary:	TeXLive utf8mex package
 Group:		Publishing
 URL:		http://tug.org/texlive
