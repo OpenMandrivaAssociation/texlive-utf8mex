@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan undef
-# catalog-date undef
-# catalog-license undef
-# catalog-version undef
 Name:		texlive-utf8mex
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	TeXLive utf8mex package
 Group:		Publishing
 URL:		http://tug.org/texlive
 License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -22,12 +16,12 @@ Requires(post):	texlive-kpathsea
 TeXLive utf8mex package.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -47,24 +41,10 @@ TeXLive utf8mex package.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 20111104-2
-+ Revision: 757332
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20111104-1
-+ Revision: 719865
-- texlive-utf8mex
-- texlive-utf8mex
-- texlive-utf8mex
-- texlive-utf8mex
-
