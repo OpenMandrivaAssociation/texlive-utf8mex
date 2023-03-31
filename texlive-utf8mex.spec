@@ -1,6 +1,6 @@
 Name:		texlive-utf8mex
 Version:	15878
-Release:	1
+Release:	2
 Summary:	TeXLive utf8mex package
 Group:		Publishing
 URL:		http://tug.org/texlive
