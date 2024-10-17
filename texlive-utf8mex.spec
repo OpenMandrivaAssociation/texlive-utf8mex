@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	TeXLive utf8mex package
 Group:		Publishing
-URL:		http://tug.org/texlive
+URL:		https://tug.org/texlive
 License:	http://www.tug.org/texlive/LICENSE.TL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.doc.r%{version}.tar.xz
