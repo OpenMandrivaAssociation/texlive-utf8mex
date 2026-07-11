@@ -1,50 +1,20 @@
-Name:		texlive-utf8mex
-Version:	15878
-Release:	2
-Summary:	TeXLive utf8mex package
+%global tl_name utf8mex
+%global tl_revision 15878
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
+Summary:	Tools to produce formats that read Polish language input
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/language/polish/utf8mex
+License:	pd
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/utf8mex.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive utf8mex package.
+The bundle provides files for building formats to read input in Polish
+encodings.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/mex/utf8mex/utf8-pl.tex
-%{_texmfdistdir}/tex/mex/utf8mex/utf8mex.ini
-%{_texmfdistdir}/tex/mex/utf8mex/utf8plsq.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/Makefile
-%doc %{_texmfdistdir}/doc/mex/utf8mex/README
-%doc %{_texmfdistdir}/doc/mex/utf8mex/examples/Makefile
-%doc %{_texmfdistdir}/doc/mex/utf8mex/examples/catcode.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/examples/list.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/examples/tilde.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/examples/tilde2.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/test-math.utf8.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/test.utf8.tex
-%doc %{_texmfdistdir}/doc/mex/utf8mex/utf8math.el
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
